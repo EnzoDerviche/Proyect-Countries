@@ -4,7 +4,8 @@ module.exports = (sequelize) => {
     // defino el modelo
     sequelize.define('activity', {
         id: {
-            type: DataTypes.SERIAL,
+            type: DataTypes.INTEGER,
+            primaryKey: true,
             allowNull: false,
         },
         name: {

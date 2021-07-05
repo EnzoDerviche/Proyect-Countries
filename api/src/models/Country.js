@@ -13,7 +13,10 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    continente: {
+    flag: {
+      type: DataTypes.STRING
+    },
+    continent: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -27,7 +30,7 @@ module.exports = (sequelize) => {
     area: {
       type: DataTypes.FLOAT,
     },
-    poblacion: {
+    population: {
       type: DataTypes.INTEGER,
     }
   },{timestamps:false}); //elimina las columnas createdAt y updatedAt
