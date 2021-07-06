@@ -1,7 +1,11 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .padre {
     background-color:rgba(190, 188, 188, 0.822); 
-    /* background: rgb(18,18,18);
-    background: linear-gradient(45deg, rgba(18,18,18,0.9836309523809523) 0%, rgba(135,135,135,1) 53%, rgba(255,255,255,1) 100%); */
     width: 600px;
     height:250px;
     display: flex;
