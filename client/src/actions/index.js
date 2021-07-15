@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-export function getCountries(){
-    return (dispatch) => {
-        
+export function getCountryDetail(id){
+    return function(dispatch) => {
+        return axios.get("http//localhost:3001/countries/" + id)
     }
 }

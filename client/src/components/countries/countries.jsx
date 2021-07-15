@@ -14,7 +14,7 @@ export default function Countries(){
         .then((response) =>
         setCountry(response.data))
     }, [])
-
+    
     return (
         <div className={style.padre}>
             <div className={style.nav}>
@@ -22,7 +22,8 @@ export default function Countries(){
             </div>
             <div className={style.cards}> 
                 {country && country.map((country) =>(
-                    <Country 
+                    <Country
+                    key={country.id} 
                     name={country.name}
                     id={country.id}
                     continent={country.continent}
