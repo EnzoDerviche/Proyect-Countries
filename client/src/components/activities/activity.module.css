@@ -1,0 +1,39 @@
+.padre{
+    background-color:  rgba(149, 149, 149, 0.950);
+    width: 60%;
+    height:20rem;
+    margin: auto;
+    border-radius:10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.forms{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+
+.danger{
+    color:red;
+}
+
+.inputs{
+    height:25px;
+    border-radius:3px;
+}
+
+.labels{
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.err{
+    margin-left: 10px;
+}
+
+.group{
+    display: flex;
+    flex-direction: row;
+}

@@ -1,0 +1,14 @@
+.padre{
+    background-color: rgba(149, 149, 149, 0.950);
+    margin-left: 10px; 
+    border-radius: 5px;
+}
+
+    .titles{
+        font-weight: bold;
+    }
+
+.filters{
+    display: flex;
+    flex-direction:row;
+}
