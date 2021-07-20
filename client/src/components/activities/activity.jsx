@@ -1,6 +1,11 @@
 import React from "react";
 import style from "./activity.module.css";
 import Nav from "../Nav/Nav";
+import {useDispatch} from "react-redux";
+import axios from "axios";
+import {useHistory} from "react-router-dom";
+import {getCountries} from "../../actions/index";
+import {useParams} from 'react-router-dom';
 
 export function validate(input) {
   let errors = {};
@@ -22,25 +27,29 @@ export function validate(input) {
   }
 
   if (!input.season) {
-    errors.season = "Season is required";
-  } else if (
-    input.season !== "Verano" ||
-    input.season !== "Otoño" ||
-    input.season !== "Invierno" ||
+    errors.season = "Season is required"
+  }
+  else if (
+    input.season !== "Verano" &&
+    input.season !== "Otoño" &&
+    input.season !== "Invierno" &&
     input.season !== "Primavera"
   ) {
     errors.season = "Season not valid";
   }
-  console.log(errors);
   return errors;
 }
 
 export default function Activity() {
+  const dispatch = useDispatch();
+  const {push} = useHistory();
+  const {id} = useParams();
   const [input, setInput] = React.useState({
     name: "",
     dificulty: "",
     duration: "",
     season: "",
+    alpha3Code: id,
   });
 
   const [errors, setErrors] = React.useState({});
@@ -60,6 +69,11 @@ export default function Activity() {
 
   const handleSubmit = function (e) {
     e.preventDefault();
+    axios.post(`http://localhost:3001/activity` , input)
+    .then(response => {
+      dispatch(getCountries())
+      push(`/country/${id}`)
+    })
   };
 
   return (
@@ -125,15 +139,13 @@ export default function Activity() {
                 {errors.season && <p className={style.danger}>{errors.season}</p>}
               </div>
             </div>
-          </form>
-        </div>
-        <div>
-              <button
-                type="submit"
-              >
+            <div>
+              <button type="submit">
                 SUBMIT
               </button>
-            </div>
+          </div>
+          </form>
+        </div>
       </div>
     </div>
   );

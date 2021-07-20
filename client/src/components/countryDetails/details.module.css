@@ -4,17 +4,23 @@
 
 .padre{
     display: flex;
-    flex-direction:column;
+    flex-direction:row;
     justify-content:center;
     box-shadow: 8px 7px 11px 0px rgba(0,0,0,0.7);
     -webkit-box-shadow: 8px 7px 11px 0px rgba(0,0,0,0.7);
     -moz-box-shadow: 8px 7px 11px 0px rgba(0,0,0,0.7);
     background-color:rgba(149, 149, 149, 0.950);
     margin: auto;
+    height: fit-content;
     border-radius:10px;
     width: fit-content;
     padding: 20px 120px;
 }
+
+    .hijo1{
+        margin: 25px;
+    }
+
 
 .flag{
     width: 225px;
