@@ -43,7 +43,7 @@ export default function Details() {
                 </div>
                 <div>
                   <Link to={`/activity/add/${id}`}>
-                    <button>Add Activity</button>
+                    <button className={style.btn}>Add Activity</button>
                   </Link>
                 </div>
               </div>

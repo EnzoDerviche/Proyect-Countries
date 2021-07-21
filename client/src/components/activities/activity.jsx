@@ -140,7 +140,7 @@ export default function Activity() {
               </div>
             </div>
             <div>
-              <button type="submit">
+              <button className={style.btn} type="submit">
                 SUBMIT
               </button>
           </div>

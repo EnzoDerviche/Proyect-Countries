@@ -15,7 +15,7 @@ export default function Countries() {
   useEffect(() => {
     dispatch(getCountries());
   }, [dispatch]);
-
+  
   return (
     <div className={style.padre}>
       <div className={style.nav}>
