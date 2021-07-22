@@ -171,7 +171,7 @@ export default function AddActivities() {
               </div>
             </div>
             <div className={style.group}>
-              <label className={style.countries} htmlFor="countries">Countries:</label>
+              <label className={style.labels} htmlFor="countries">Countries:</label>
               <select multiple requires
                   className={style.inputs}
                   type="text"
@@ -182,9 +182,6 @@ export default function AddActivities() {
                   <option onClick={clickCountries} value={c.id}>{c.name}</option>
                 ))};
               </select>
-            </div>
-            <div>
-              <p>{}</p>
             </div>
             <div>
               <button className={style.btn} type="submit">

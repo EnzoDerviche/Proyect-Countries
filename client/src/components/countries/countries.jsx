@@ -14,7 +14,7 @@ export default function Countries() {
   const dispatch = useDispatch();
   const [page, setPage] = React.useState(1);
 
-  let buttoninit = false;
+  let buttoninit = false; //Si la pagina es 1 cambia el estado a true para ocultar el btn
   if(page !== 1) {
     buttoninit = true;
   }
@@ -30,8 +30,6 @@ export default function Countries() {
   if(countries.length >= 10) {
     button = true;
   }
-  
-
 
   const paginate = (countries, page) => {
     //chekeo que sea posible el paginado

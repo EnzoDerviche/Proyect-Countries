@@ -70,9 +70,12 @@ export default function Filtro() {
         <div  className={style.filt}>
           <p className={style.titles}>Activities</p>
           <hr />
-          <button className={style.btn} onClick={() => filterByActivities('Sky')}> 
-            Sky
-          </button>
+          {/* {activities && activities.map((a) => (
+              <button className={style.btn} onClick={() => filterByActivities({a.name})}> 
+              {a.name}
+            </button>
+          )}
+          */}
           <button className={style.btn} onClick={() => filterByActivities('Futbol')}>
             Futbol
           </button>

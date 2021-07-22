@@ -3,7 +3,7 @@ const router = express.Router()
 const {Activity} = require("../db")
 
 router.post("/", async function (req, res) {
-    const {name, dificulty, duration,season, array} = req.body;
+    const {name, dificulty, duration, season, array} = req.body;
 
     const newActivity = await Activity.create({ //creamos nueva actividad con los valores llegados
         name,
