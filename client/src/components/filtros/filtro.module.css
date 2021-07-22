@@ -12,3 +12,21 @@
     display: flex;
     flex-direction:row;
 }
+
+    .filt{
+        display: flex;
+        flex-direction:column;
+    }
+
+.btn{
+    margin-top: 1px;
+    background-color:rgb(192, 192, 192);
+    font-weight: bold;
+    width:100px;
+    height:30px;
+    border-radius: 10px;
+}
+
+    .btn:hover{
+        background-color:rgb(124, 124, 124);
+    }

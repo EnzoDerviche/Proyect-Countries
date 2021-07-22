@@ -9,12 +9,12 @@ import Table from "../table-activities/table";
 import {Link} from 'react-router-dom';
 
 export default function Details() {
-  const details = useSelector((state) => state.countryDetail);
+  const details = useSelector((state) => state.countryDetail); //traes el el array de countries filtrados
   const dispatch = useDispatch();
   const {id} = useParams();
 
   useEffect(() => {
-    dispatch(getCountryDetail(id));
+    dispatch(getCountryDetail(id)); //dispacha la action con el id pasado por parametro
   }, [id, dispatch]);
 
   return (
@@ -22,9 +22,8 @@ export default function Details() {
       <div className={style.nav}>
         <Nav />
       </div>
-      {details ? 
+      {details ? //verifica si existen details, sino renderiza el cargando...
           <section>
-            {console.log(details)}
             <div className={style.padre}>
               <div className={style.hijo1}>
                 <div className={style.box1}>
@@ -49,7 +48,7 @@ export default function Details() {
               </div>
               <div>
                   <Table
-                  activities = {details.activities}
+                  activities = {details.activities} //se le envia el array de activities a dicho componente
                   />
               </div>
             </div>

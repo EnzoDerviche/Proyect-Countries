@@ -13,8 +13,8 @@ const rootReducer = (state = initialState, action) => {
         case GET_COUNTRIES:{ 
             return{
                 ...state,
-                countries: action.payload, 
-                countriesFiltered: action.payload
+                countries: action.payload,  //estado con todos los countries
+                countriesFiltered: action.payload // estado de referencia para fitrar
             }
         }
         case GET_COUNTRIES_BY_NAME:{

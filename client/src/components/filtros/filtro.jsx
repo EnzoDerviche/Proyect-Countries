@@ -14,7 +14,7 @@ export default function Filtro() {
     dispatch(filterByContinent(name));
   };
 
-  const sortBy = (filter, order) => {
+  const sortBy = (filter, order) => { //verifica si el filter es population o alphabet para dispachar la funcion de ordenamiento segun el order
     switch (filter) {
       case "population":
         dispatch(sortByPopulation(order));
@@ -33,35 +33,35 @@ export default function Filtro() {
         <p className={style.titles}>FILTERED</p>
       </div>
       <div className={style.filters}>
-        <div>
+        <div className={style.filt}>
           <p className={style.titles}>By Continent</p>
           <hr />
-          <button onClick={() => filterByContinentButton("Americas")}>
+          <button className={style.btn} onClick={() => filterByContinentButton("Americas")}>
             America
           </button>
-          <button onClick={() => filterByContinentButton("Europe")}>
+          <button className={style.btn} onClick={() => filterByContinentButton("Europe")}>
             Europa
           </button>
-          <button onClick={() => filterByContinentButton("Asia")}>Asia</button>
-          <button onClick={() => filterByContinentButton("Oceania")}>
+          <button className={style.btn} onClick={() => filterByContinentButton("Asia")}>Asia</button>
+          <button className={style.btn} onClick={() => filterByContinentButton("Oceania")}>
             Oceania
           </button>
-          <button onClick={() => filterByContinentButton("Africa")}>
+          <button className={style.btn} onClick={() => filterByContinentButton("Africa")}>
             Africa
           </button>
         </div>
         <hr />
-        <div>
+        <div  className={style.filt}>
           <p className={style.titles}>Others</p>
           <hr />
-          <button onClick={() => sortBy("population", "asc")}>
+          <button className={style.btn} onClick={() => sortBy("population", "asc")}>  {/* primer parametro es filter y segundo order */}
             ⇧ Poblation
           </button>
-          <button onClick={() => sortBy("population", "desc")}>
+          <button className={style.btn} onClick={() => sortBy("population", "desc")}>
             ⇩ Poblation
           </button>
-          <button onClick={() => sortBy("alphabet", "asc")}>A-Z</button>
-          <button onClick={() => sortBy("alphabet", "desc")}>Z-A</button>
+          <button className={style.btn} onClick={() => sortBy("alphabet", "asc")}>A-Z</button>
+          <button className={style.btn} onClick={() => sortBy("alphabet", "desc")}>Z-A</button>
         </div>
       </div>
     </div>

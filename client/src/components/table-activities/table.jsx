@@ -4,7 +4,7 @@ import style from './table.module.css';
 export default function Table({activities}){
     return(
         <div>
-            {activities && activities.length > 0 ?
+            {activities && activities.length > 0 ? 
                     <table className={style.table}>
                         <thead>
                             <tr className={style.tr}>
@@ -15,7 +15,7 @@ export default function Table({activities}){
                             </tr>
                         </thead>
                         <tbody>
-                        {activities &&
+                        {activities && 
                         activities.map((a) => (
                             <tr className={style.tr} key={a.id}>
                                 <td className={style.td}>{a.name}</td>

@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import style from './country.module.css';
 
-export default function Country({name, id, continent, flag}){
+export default function Country({name, id, continent, flag}){ //destructuring de las propiedades enviadas desde el map de countries
 
     return (
             <div className={style.card}> 

@@ -10,7 +10,7 @@ export default function SearchBar() {
   return (
     <form
       className={style.searchBar}
-      onSubmit={(e) => {
+      onSubmit={(e) => { //dispacha el action de filtrado por nombre y luego setea el estado en vacio
         e.preventDefault();
         dispatch(getCountriesByName(country));
         setCountry("");
