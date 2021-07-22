@@ -14,6 +14,24 @@ export default function Countries() {
   const dispatch = useDispatch();
   const [page, setPage] = React.useState(1);
 
+  let buttoninit = false;
+  if(page !== 1) {
+    buttoninit = true;
+  }
+  
+  let buttonend= false;
+  if(page !== 25) {
+    buttonend = true;
+  }
+
+  console.log(countries.length);
+
+  let button= false;
+  if(countries.length >= 10) {
+    button = true;
+  }
+  
+
 
   const paginate = (countries, page) => {
     //chekeo que sea posible el paginado
@@ -71,11 +89,14 @@ export default function Countries() {
             
         </div>
       </div>
-      <div className={style.pag}>
-          <button className={style.btn} onClick={(e) =>handlePage(e)} name='prev'>⇦</button>
-            <p><strong>{page}</strong></p>
-          <button className={style.btn} onClick={(e) => handlePage(e)} name='next'>⇨</button>
-      </div>
+      {button ?
+        <div className={style.pag}>
+        {buttoninit ? <button className={style.btn} onClick={(e) =>handlePage(e)} name='prev'>⇦</button> : <div></div>}
+          <p><strong>{page}</strong></p>
+        {buttonend ? <button className={style.btn} onClick={(e) =>handlePage(e)} name='next'>⇨</button> : <div></div>}
+        </div> :
+        <div></div>
+    }
     </div>
   );
 }
