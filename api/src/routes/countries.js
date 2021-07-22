@@ -16,7 +16,7 @@ router.get("/", async (req, res) => {
         ? res.send(countri)
         : res.status(400).send("The country was not found");
     } else {
-      const countries = await Country.findAll();
+      const countries = await Country.findAll({include:Activity});
       if (countries.length > 0) { //verifica si hay paises ya cargados en la db, sino hace el pedido a la api y los carga
         console.log("Countries de la database");
         return res.send(countries);

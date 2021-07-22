@@ -6,7 +6,6 @@ import {useSelector, useDispatch} from "react-redux";
 import {getCountryDetail} from "../../actions/index";
 import {useParams} from 'react-router-dom';
 import Table from "../table-activities/table";
-import {Link} from 'react-router-dom';
 
 export default function Details() {
   const details = useSelector((state) => state.countryDetail); //traes el el array de countries filtrados
@@ -39,11 +38,6 @@ export default function Details() {
                   <p className={style.p}>- Subregion: {details.subregion}.</p>
                   <p className={style.p}>- Area: {details.area} km2.</p>
                   <p className={style.p}>- Poblacion: {details.population} residents.</p>
-                </div>
-                <div>
-                  <Link to={`/activity/add/${id}`}>
-                    <button className={style.btn}>Add Activity</button>
-                  </Link>
                 </div>
               </div>
               <div>

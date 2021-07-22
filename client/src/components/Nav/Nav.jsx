@@ -16,6 +16,9 @@ export default function Nav() {
                 <Link style={{ textDecoration: 'none' }} to='/countries'>
                     <li className={style.menu}>Countries</li>
                 </Link>
+                <Link style={{ textDecoration: 'none' }} to='/add/activities'>
+                    <li className={style.menu}>Add activity</li>
+                </Link>
             </ul>
         </nav>
     );

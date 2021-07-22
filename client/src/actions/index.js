@@ -7,6 +7,7 @@ export const SORT_BY_POPULATION_DESC = "SORT_BY_POPULATION_DESC";
 export const SORT_ALPHABETICALLY = "SORT_ALPHABETICALLY";
 export const SORT_ALPHABETICALLY_REVERSE = "SORT_ALPHABETICALLY_REVERSE";
 export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT";
+export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
 
 export const getCountries = () => {
   return function (dispatch) {
@@ -56,6 +57,13 @@ export const sortAlphabetically = (payload) => {
 export const filterByContinent = (payload) => {
   return {
     type: FILTER_BY_CONTINENT,
+    payload,
+  };
+};
+
+export const filterByActivity = (payload) => {
+  return {
+    type: FILTER_BY_ACTIVITY,
     payload,
   };
 };

@@ -1,4 +1,4 @@
-import {GET_COUNTRIES, GET_COUNTRY_DETAIL, GET_COUNTRIES_BY_NAME, SORT_ALPHABETICALLY, SORT_ALPHABETICALLY_REVERSE, FILTER_BY_CONTINENT, SORT_BY_POPULATION, SORT_BY_POPULATION_DESC} from "../actions/index";
+import {GET_COUNTRIES, GET_COUNTRY_DETAIL, GET_COUNTRIES_BY_NAME, SORT_ALPHABETICALLY, FILTER_BY_ACTIVITY, SORT_ALPHABETICALLY_REVERSE, FILTER_BY_CONTINENT, SORT_BY_POPULATION, SORT_BY_POPULATION_DESC} from "../actions/index";
 import{sortAlphabeticallyAz, sortByPopulation} from "../filters/index";
 
 
@@ -57,6 +57,14 @@ const rootReducer = (state = initialState, action) => {
             return{
                 ...state,
                 countriesFiltered: state.countries.filter((c)=> c.continent === action.payload)
+            }
+        }
+        case FILTER_BY_ACTIVITY:{
+            return{
+                ...state,
+                countriesFiltered: state.countries.filter((c) => {
+                    return c.activities.some((a) => a.name === action.payload)
+                })
             }
         }
 

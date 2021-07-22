@@ -5,6 +5,7 @@ import {
   filterByContinent,
   sortByPopulation,
   sortAlphabetically,
+  filterByActivity
 } from "../../actions/index";
 
 export default function Filtro() {
@@ -12,6 +13,9 @@ export default function Filtro() {
 
   const filterByContinentButton = (name) => {
     dispatch(filterByContinent(name));
+  };
+  const filterByActivities = (name) => {
+    dispatch(filterByActivity(name));
   };
 
   const sortBy = (filter, order) => { //verifica si el filter es population o alphabet para dispachar la funcion de ordenamiento segun el order
@@ -59,6 +63,21 @@ export default function Filtro() {
           </button>
           <button className={style.btn} onClick={() => sortBy("population", "desc")}>
             ⇩ Poblation
+          </button>
+          <button className={style.btn} onClick={() => sortBy("alphabet", "asc")}>A-Z</button>
+          <button className={style.btn} onClick={() => sortBy("alphabet", "desc")}>Z-A</button>
+        </div>
+        <div  className={style.filt}>
+          <p className={style.titles}>Activities</p>
+          <hr />
+          <button className={style.btn} onClick={() => filterByActivities('Sky')}> 
+            Sky
+          </button>
+          <button className={style.btn} onClick={() => filterByActivities('Futbol')}>
+            Futbol
+          </button>
+          <button className={style.btn} onClick={() => filterByActivities('Hockey')}>
+            Hockey
           </button>
           <button className={style.btn} onClick={() => sortBy("alphabet", "asc")}>A-Z</button>
           <button className={style.btn} onClick={() => sortBy("alphabet", "desc")}>Z-A</button>

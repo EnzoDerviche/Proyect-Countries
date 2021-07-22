@@ -1,11 +1,8 @@
 import React from "react";
-import style from "./activity.module.css";
+import style from "./addActivity.module.css";
 import Nav from "../Nav/Nav";
-import {useDispatch} from "react-redux";
-import axios from "axios";
-import {useHistory} from "react-router-dom";
+import {useSelector, useDispatch} from "react-redux";
 import {getCountries} from "../../actions/index";
-import {useParams} from 'react-router-dom';
 
 export function validate(input) {
   let errors = {};
@@ -40,16 +37,16 @@ export function validate(input) {
   return errors;
 }
 
-export default function Activity() {
+export default function AddActivities() {
+  const country = useSelector((state) => state.countriesFiltered);
   const dispatch = useDispatch();
-  const {push} = useHistory();
-  const {id} = useParams();
+
   const [input, setInput] = React.useState({
     name: "",
     dificulty: "",
     duration: "",
     season: "",
-    alpha3Code: id,
+    alpha3Code: [],
   });
 
   const [errors, setErrors] = React.useState({});
@@ -67,14 +64,37 @@ export default function Activity() {
     );
   };
 
-  const handleSubmit = function (e) {
+  let array = [];
+  const clickCountries = function (e) {
+    array.push(e.target.value)
+    console.log(array)
+  }  
+
+  React.useEffect(() => {
+    dispatch(getCountries())
+  }, [dispatch])
+
+  async function handleSubmit(e) {
     e.preventDefault();
-    axios.post(`http://localhost:3001/activity` , input)
-    .then(response => {
-      dispatch(getCountries())
-      push(`/country/${id}`)
-    })
-  };
+    try {
+      let { name, dificulty, duration, season } = input;
+      let body = { name, dificulty, duration, season, array };
+
+      await fetch("http://localhost:3001/activity", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body),
+      });
+
+      alert("done..!");
+      setInput({
+        name: "",
+        duration: ""
+      })
+    } catch (err) {
+      console.log(err.message);
+    }
+  }
 
   return (
     <div>
@@ -102,13 +122,19 @@ export default function Activity() {
             </div>
             <div className={style.group}>
               <label className={style.labels} htmlFor="dificulty">Dificulty:</label>
-              <input 
+              <select
                 className={errors.dificulty && style.inputs}
                 type="number"
                 name="dificulty"
                 onChange={handleInputChange}
                 value={input.dificulty}
-              />
+              >
+                <option value='1'>1</option>
+                <option value='2'>2</option>
+                <option value='3'>3</option>
+                <option value='4'>4</option>
+                <option value='5'>5</option>
+              </select>
               <div className={style.err}>
                 {errors.dificulty && <p className={style.danger}>{errors.dificulty}</p>}
               </div>
@@ -128,16 +154,37 @@ export default function Activity() {
             </div>
             <div className={style.group}>
               <label className={style.labels} htmlFor="season">Season:</label>
-              <input
+              <select
                   className={errors.season && style.inputs}
                   type="text"
                   name="season"
                   onChange={handleInputChange}
                   value={input.season}
-              />
+              >
+                <option value='Verano'>Verano</option>
+                <option value='Invierno'>Invierno</option>
+                <option value='Otoño'>Otoño</option>
+                <option value='Primavera'>Primavera</option>
+              </select>
               <div className={style.err}>
                 {errors.season && <p className={style.danger}>{errors.season}</p>}
               </div>
+            </div>
+            <div className={style.group}>
+              <label className={style.countries} htmlFor="countries">Countries:</label>
+              <select multiple requires
+                  className={style.inputs}
+                  type="text"
+                  name="countries"
+              >
+                {country &&
+                country.map( (c) => (
+                  <option onClick={clickCountries} value={c.id}>{c.name}</option>
+                ))};
+              </select>
+            </div>
+            <div>
+              <p>{}</p>
             </div>
             <div>
               <button className={style.btn} type="submit">
