@@ -5,7 +5,7 @@ import Nav from "../Nav/Nav";
 import {useSelector, useDispatch} from "react-redux";
 import {getCountryDetail} from "../../actions/index";
 import {useParams} from 'react-router-dom';
-import Table from "../table-activities/table";
+import {Link} from 'react-router-dom';
 
 export default function Details() {
   const details = useSelector((state) => state.countryDetail); //traes el el array de countries filtrados
@@ -32,18 +32,18 @@ export default function Details() {
                     alt="bandera del pais"
                   />
                 </div>
-                <div className={style.details}>
+                <section className={style.details}>
                   <p className={style.p}>- Name: {details.name}.</p>
                   <p className={style.p}>- Capital: {details.capital}.</p>
                   <p className={style.p}>- Subregion: {details.subregion}.</p>
                   <p className={style.p}>- Area: {details.area} km2.</p>
-                  <p className={style.p}>- Poblacion: {details.population} residents.</p>
+                  <p className={style.p}>- Poblacion: {details.population}</p>
+                </section>
+                <div>
+                  <Link to={`/activities/${id}`}>
+                    <button>Activities</button>
+                  </Link>
                 </div>
-              </div>
-              <div>
-                  <Table
-                  activities = {details.activities} //se le envia el array de activities a dicho componente
-                  />
               </div>
             </div>
           </section>

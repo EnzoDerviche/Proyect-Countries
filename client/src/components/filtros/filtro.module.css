@@ -1,32 +1,5 @@
-.padre{
-    background-color: rgba(149, 149, 149, 0.950);
-    margin-left: 10px; 
-    border-radius: 5px;
-}
-
-    .titles{
-        font-weight: bold;
-    }
-
-.filters{
-    display: flex;
-    flex-direction:row;
-}
-
-    .filt{
-        display: flex;
-        flex-direction:column;
-    }
-
-.btn{
-    margin-top: 1px;
-    background-color:rgb(192, 192, 192);
+.boton{
+    width:fit-content;
+    height:25px;
     font-weight: bold;
-    width:100px;
-    height:30px;
-    border-radius: 10px;
 }
-
-    .btn:hover{
-        background-color:rgb(124, 124, 124);
-    }

@@ -1,45 +1,10 @@
-
-.card{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    background-color: rgba(149, 149, 149, 0.950);
-    width:250px;
-    height:270px;
-    margin: 35px 15px;
-    border-radius:10px;
-    transition: 0.2s;
-    transition: all 250ms;
-    box-shadow: 8px 7px 11px 0px rgba(0,0,0,0.7);
-    -webkit-box-shadow: 8px 7px 11px 0px rgba(0,0,0,0.7);
-    -moz-box-shadow: 8px 7px 11px 0px rgba(0,0,0,0.7);
-}
-    .card:hover{
-        transform: scale(1.1);
-    }
-
-.cartas{
-    display: flex;
-    flex-direction:column;
+.carta{
+    width: 295px;
+    height: 320px !important;
+    margin: 12px;
+    border-radius:15px !important;
 }
 
-    .img {
-        width:100%;
-        height:100%;
-        border-radius:15px 15px 0px 0px;
-    }
-
-    .name{
-        margin:5px 0px 0px 0px;
-        text-decoration: none;
-    }
-
-        .name:hover {
-            color:black;
-        }
-
-    .continent{
-        margin:5px 0px 40px 0px;
-        color: white;
-    }
+.flag{
+    height: 200px !important;
+}

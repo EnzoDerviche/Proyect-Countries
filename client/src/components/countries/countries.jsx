@@ -2,10 +2,13 @@ import React from "react";
 import { useEffect } from "react";
 import Country from "../country/country";
 import Nav from "../Nav/Nav";
+import Footer from "../footer/footer";
 import style from "./countries.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { getCountries } from "../../actions/index";
 import SearchBar from "../SearchBar/SearchBar.jsx";
+import { IoIosArrowBack,  IoIosArrowForward} from "react-icons/io";
+
 
 import Filtro from "../filtros/filtro";
 
@@ -20,26 +23,24 @@ export default function Countries() {
   }
   
   let buttonend= false;
-  if(page !== 25) {
+  if(page !== 21) {
     buttonend = true;
   }
 
-  console.log(countries.length);
-
   let button= false;
-  if(countries.length >= 10) {
+  if(countries.length >= 12) {
     button = true;
   }
 
   const paginate = (countries, page) => {
     //chekeo que sea posible el paginado
-    if (countries.length < 10 && countries.length !== 0) {
+    if (countries.length < 12 && countries.length !== 0) {
       return countries; // si no, devuelvo los countries paginados
     }
     //caso contrario, procedo a paginar
     else {
-      const offset = page * 10;
-      const initial = offset - 10;
+      const offset = page * 12;
+      const initial = offset - 12;
       return countries.slice(initial, offset); // devuelve el array de los 10
     }
   };
@@ -64,13 +65,16 @@ export default function Countries() {
       <div className={style.nav}>
         <Nav />
       </div>
-      <div className={style.content}>
+      <div className={style.title}>
+        <h3>App Countries</h3>
+      </div>
+      <div className={style.filter}>
+        <Filtro />
+      </div>
+      <section className={style.content}>
         <div className={style.box1}>
           <div className={style.buscador}>
             <SearchBar className={style.buscador} />
-          </div>
-          <div>
-            <Filtro />
           </div>
         </div>
         <div className={style.box2}>
@@ -86,15 +90,18 @@ export default function Countries() {
             ))}
             
         </div>
-      </div>
+      </section>
       {button ?
         <div className={style.pag}>
-        {buttoninit ? <button className={style.btn} onClick={(e) =>handlePage(e)} name='prev'>⇦</button> : <div></div>}
-          <p><strong>{page}</strong></p>
-        {buttonend ? <button className={style.btn} onClick={(e) =>handlePage(e)} name='next'>⇨</button> : <div></div>}
+        {buttoninit ? <button className={style.btn} onClick={(e) =>handlePage(e)} name='prev'><IoIosArrowBack/></button> : <div className={style.p1}><p className={style.p2}><IoIosArrowBack/></p></div>}
+          <p className={style.p2}>{page} de 21</p>
+        {buttonend ? <button className={style.btn} onClick={(e) =>handlePage(e)} name='next'><IoIosArrowForward/></button> : <div className={style.p1}><p className={style.p2}><IoIosArrowForward/></p></div>}
         </div> :
         <div></div>
-    }
+      }
+      <section>
+        <Footer/>
+      </section>
     </div>
   );
 }

@@ -1,18 +1,44 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
 import style from './country.module.css';
 
-export default function Country({name, id, continent, flag}){ //destructuring de las propiedades enviadas desde el map de countries
+const useStyles = makeStyles({
+  root: {
+    maxWidth: 300,
+  },
+});
 
-    return (
-            <div className={style.card}> 
-                <img className={style.img} src={flag} alt="bandera del pais" /> 
-                <div className={style.cartas}>         
-                        <Link style={{ textDecoration: 'none' }} to={`/country/${id}`}>
-                            <h2  className={style.name}>{name}</h2>
-                        </Link>        
-                        <h4 className={style.continent}>{continent}</h4>
-                </div>
-            </div>
-    )
+export default function Country({name, id, continent, flag}) {
+  const classes = useStyles();
+
+  return (
+    <Link style={{ textDecoration: 'none' }} to={`/country/${id}`}>
+      <Card className={classes.root && style.carta}>
+        <CardActionArea>
+          <CardMedia
+            className={style.flag}
+            component="img"
+            alt="Contemplative Reptile"
+            height="140"
+            src={flag}
+            title="Contemplative Reptile"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="h4">
+              {name}
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {continent}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      </Card>
+    </Link>
+  );
 }

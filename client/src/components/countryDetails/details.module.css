@@ -1,3 +1,9 @@
+.content{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+}
+
 .nav{
     margin-bottom: 50px;
 }
@@ -12,9 +18,9 @@
     background-color:rgba(149, 149, 149, 0.950);
     margin: auto;
     height: fit-content;
-    border-radius:10px;
+    border-radius:5px;
     width: fit-content;
-    padding: 20px 120px;
+    padding: 20px 20px;
 }
 
     .hijo1{
@@ -23,32 +29,23 @@
 
 
 .flag{
-    width: 225px;
-    height: 140px;
-    border-radius: 15px;
+    width: 270px;
+    height: 160px;
+    border-radius: 2px;
+    margin-bottom: 25px;
 }
 
 .p{
-    margin: 0px;
+    margin-top: 0.1px;
 }
 
 .details{
-    font-size: 25px;
-    font-weight: bold;
+    margin-top:5px;
+    font: 1em "Times New Roman";
+    font-weight:bold;
+    font-size: 27px;
     display: flex;
     flex-direction:column;
     align-items:flex-start;
 }
 
-.btn{
-    margin-top: 10px;
-    background-color:rgb(192, 192, 192);
-    font-weight: bold;
-    width:100px;
-    height:30px;
-    border-radius: 10px;
-}
-
-    .btn:hover{
-        background-color:rgb(124, 124, 124);
-    }

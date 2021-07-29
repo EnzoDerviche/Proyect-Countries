@@ -5,9 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url('../../client/src/img/countries.png'); 
-  background-size:contain;
-  background-repeat: no-repeat;  
+  background-color:rgba(246, 246, 246, 0.966); 
   height: 100vh;
   width:100%;
 }
