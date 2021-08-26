@@ -1,5 +1,5 @@
 <p align="left">
-  <img height="200" src="./countries.png" />
+  <img height="200" src="https://blog.selfbank.es/wp-content/uploads/2015/09/iStock_000017116755_Small-720x320.jpg" />
 </p>
 
 ## Proyecto
