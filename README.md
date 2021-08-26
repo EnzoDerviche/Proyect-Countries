@@ -8,12 +8,19 @@
 
 ## Tecnologias Utilizadas
 -Javascript
+
 -React
+
 -Redux
+
 -Material UI
+
 -Node
+
 -Postgress.sql
+
 -Express
+
 -Sequelize
 
   
