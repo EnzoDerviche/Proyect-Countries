@@ -1,4 +1,4 @@
-<p align="left">
+<p align="center">
   <img height="200" width= "1000" src="https://blog.selfbank.es/wp-content/uploads/2015/09/iStock_000017116755_Small-720x320.jpg" />
 </p>
 
